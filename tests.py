@@ -19,12 +19,12 @@ WeatherService = DarkSkyService(DARK_SKY)
 LessController = LessengerController(GeoService, WeatherService)
 
 
-tests = [
+test_inputs = [
     "SF", "Fresno, CA"
 ]
 
-for test in tests:
-    geocode_result = LessController.get_weather(test)
+for inputs in test_inputs:
+    geocode_result = LessController.get_weather(inputs)
     #pp.pprint(geocode_result)
 
 lat = 31.9685988
