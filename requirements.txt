@@ -1,2 +1,4 @@
 Flask
 googlemaps
+requests
+python-forecastio

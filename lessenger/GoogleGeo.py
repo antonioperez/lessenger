@@ -10,12 +10,9 @@ class GoogleGeoService:
     def query_geocode(self, query):
         if len(query) < 1:
             return []
-
+        
         geocode_result = self.gmaps.geocode(query)
         return geocode_result
-
-    def parse_query(self):
-        pass
         
     
     
