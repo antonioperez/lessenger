@@ -13,14 +13,12 @@ GMAPS_KEY = ""
 
 pp = pprint.PrettyPrinter(indent=4)
 
-
 GeoService = GoogleGeoService(GMAPS_KEY)
 WeatherService = DarkSkyService(DARK_SKY)
 LessController = LessengerController(GeoService, WeatherService)
 
-
 test_inputs = [
-    "SF", "Fresno, CA"
+    "", "Fresno, CA"
 ]
 
 for inputs in test_inputs:

@@ -21,13 +21,13 @@ class LessengerController:
         query = self.parse_location_query(query)
         geocode_result = []
         try:
-            geocode_results = self.geoService.query_geocode(query)
+            geocode_results = self.geoService.search_location(query)
             coors_points = self.geoService.get_lat_lng()
             weather_data = self.weatherService.get_weather_data(coors_points)
-            pp.pprint(weather_data.summary) 
-            
+            pp.pprint(weather_data.summary)
         except Exception as err:
-            print('Handling unknown error ', err)
+            print(err)
+            
         return geocode_result
 
     

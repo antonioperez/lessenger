@@ -1,5 +1,7 @@
 import googlemaps
 
+class LocationNotFound(Exception):
+    pass
 
 class GoogleGeoService:
 
@@ -9,26 +11,24 @@ class GoogleGeoService:
         self.gmaps = googlemaps.Client(key=api_key)
         self.data = {}
     
-    def query_geocode(self, query):
-        if len(query) < 1:
+    def search_location(self, location):
+        if len(location) < 1:
             return []
-
-        self.data = self.gmaps.geocode(query)
+        self.data = self.gmaps.geocode(location)
     
     def get_lat_lng(self):
-
         for result in self.data:     
             location = result["geometry"]["location"]
-            #shortcut to check for city location
+            """shortcut to check for city location
+            search for address components if first city indicator fails"""
             if self.city_search_key in result["types"]:
                 if "lat" in location and "lng" in location:
                     return location
-            #all else fails, search for component. Perhaps have other city indicator checks
             elif any(component for component in result["address_components"] if "locality" in component["types"]):
                 if "lat" in location and "lng" in location:
                     return location
-                
-            return None
+
+        raise LocationNotFound("Location Not Found")
         
     
     
