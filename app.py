@@ -1,9 +1,9 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from lessenger.Controller import Controller
 
 app = Flask(__name__)
 
-@app.route("/", methods=['GET'])
+@app.route("/", methods=['GET', 'POST'])
 def lessenger_chatbot():
     
     response = jsonify({'some': 'data'})
