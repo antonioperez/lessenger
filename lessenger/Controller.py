@@ -73,11 +73,11 @@ class LessengerController:
         locations = ()
         weather_data = None
         if "weather in" in query:
-            locations = self.parserService.get_location(query, "weather in")
+            locations = self.parserService.parse(query, "weather in")
             if locations[1]:
                 location = locations[1]
         elif "weather" in query:
-            locations = self.parserService.get_location(query, "weather")
+            locations = self.parserService.parse(query, "weather")
             if locations[0]:
                 location = locations[0]
             elif locations[1]:
