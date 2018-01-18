@@ -15,9 +15,9 @@ class LessengerController:
         self.parserService = parserService
     
     def get_help_message(self):
-        msg = """I hear you're interested in the weather <br>
-            ask for the weather in any city <br>
-            ex) weather in SF, what's the weather in Fresno, LA weather"""
+        msg = """I hear you're interested in the weather! <br>
+            Ask for the weather in any city <br>
+            ex) weather in SF, what's the weather in Fresno, or LA weather"""
         return {
             "type": "rich",
             "html": msg

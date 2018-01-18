@@ -46,4 +46,4 @@ def lessenger_chatbot():
     return response
 
 if __name__ == '__main__':
-    APP.run(port=9000, debug=True)
+    APP.run(port=9000, debug=False)
