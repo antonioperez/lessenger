@@ -20,7 +20,8 @@ lessenger_control = LessengerController(geo_service, weather_service, request_pa
 
 test_inputs = [
     "Fresno", "what's the weather in Fresno", 
-    "weather in 93722", "weather seattle", "LA weather"
+    "weather in 93722", "weather seattle", "LA weather",
+    "weather san francisco"
 ]
 
 for query in test_inputs:
