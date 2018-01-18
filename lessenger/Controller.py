@@ -1,28 +1,8 @@
 from lessenger.GoogleGeo import LocationNotFound, NoDataError
-import re
-import pprint
 
 class QueryRequired(Exception):
     pass
 
-class LessengerParser:
-    """Class to read and parse the users request
-    """
-
-    def get_location(self, query, indicator):
-        query = query.lower().strip()
-        words = query.split()
-
-        if len(words) == 1:
-            return tuple(words)
-  
-        reg_word = r"\W*([\w]*)"
-        regex = r"{}\W*{}{}".format(reg_word,indicator,reg_word)
-        pattern = re.compile(regex)
-        matches = re.search(pattern, query)
-        if matches:
-            return matches.groups()
-        return ()
 
 class LessengerController:
     """Control available services to parse data. 
@@ -59,7 +39,7 @@ class LessengerController:
             location = query
         
         if location:
-            geocode_results = self.geoService.search_location(location)
+            self.geoService.search_location(location)
             coors_points = self.geoService.get_lat_lng()
             weather_data = self.weatherService.get_weather_data(coors_points)
             
