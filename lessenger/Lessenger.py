@@ -24,15 +24,6 @@ class LessengerParser:
             return matches.groups()
         return ()
 
-    def parse_location_query(self, query):
-        query = query.lower().strip()
-        if not query: 
-            raise QueryRequired("Query can't be empty")        
-        return query
-
-
-
-
 class LessengerController:
     """Control available services to parse data. 
        TO-DO: Add abstract class to keep service API consistent
@@ -46,19 +37,31 @@ class LessengerController:
     def get_response(self, query):
         pass
 
-    def get_weather(self, location):
-        query = self.parserService.parse_location_query(location)        
+    def get_weather(self, query):
+        query = query.lower().strip()
+        if not query: 
+            raise QueryRequired("Query can't be empty") 
+        
+        location = ""
+        locations = ()
         weather_data = None
-        try:
+        if "weather in" in query:
+            locations = self.parserService.get_location(query, "weather in")
+            if locations[1]:
+                location = locations[1]
+        elif "weather" in query:
+            locations = self.parserService.get_location(query, "weather")
+            if locations[0]:
+                location = locations[0]
+            elif locations[1]:
+                location = locations[1]
+        else:
+            location = query
+        
+        if location:
             geocode_results = self.geoService.search_location(location)
             coors_points = self.geoService.get_lat_lng()
             weather_data = self.weatherService.get_weather_data(coors_points)
-
-        except LocationNotFound as err:
-            print(err)
-
-        except NoDataError as err:
-            print(err)
             
         return weather_data    
     
