@@ -13,12 +13,14 @@ PIP - python package manager
 ### Installing
 
 ```
-pip3 install requirements.txt
+pip install requirements.txt
 ```
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+```
+python tests.py
+```
 
 
 ## Running Application
