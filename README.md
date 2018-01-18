@@ -3,6 +3,7 @@
 
 Lessenger Chatbot - Weather
 
+Access test UI here https://github.com/Hipmunk/hipproblems/tree/master/lessenger
 
 ### Prerequisites
 
