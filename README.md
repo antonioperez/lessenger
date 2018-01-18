@@ -31,3 +31,10 @@ python tests.py
 ```
 python app.py
 ```
+
+
+shout to 
+
+https://github.com/ZeevG/python-forecast.io
+
+https://github.com/googlemaps/google-maps-services-python

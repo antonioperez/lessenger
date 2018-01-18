@@ -13,10 +13,10 @@ GMAPS_KEY = "AIzaSyD7W7v5psM8TDJwUV2WxsPkoYRtByh07Y0"
 
 pp = pprint.PrettyPrinter(indent=4)
 
-GeoService = GoogleGeoService(GMAPS_KEY)
-WeatherService = DarkSkyService(DARK_SKY)
-RequestParser = LessengerParser()
-LessController = LessengerController(GeoService, WeatherService, RequestParser)
+geo_service = GoogleGeoService(GMAPS_KEY)
+weather_service = DarkSkyService(DARK_SKY)
+request_parser = LessengerParser()
+lessenger_control = LessengerController(geo_service, weather_service, request_parser)
 
 test_inputs = [
     "Fresno", "what's the weather in Fresno", 
@@ -25,7 +25,7 @@ test_inputs = [
 
 for query in test_inputs:
     
-    geocode_result = LessController.get_weather(query)
+    geocode_result = lessenger_control.get_weather(query)
     if geocode_result:
         summary = geocode_result.summary
         pp.pprint(summary)

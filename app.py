@@ -19,9 +19,7 @@ def lessenger_chatbot():
     request_parser = LessengerParser()
     lessenger_control = LessengerController(geo_service, weather_service, request_parser)
     
-    data = {
-        "messages" : []
-    }
+    data = {"messages" : []}
     request_form = request.form
     action = request_form.get("action")
 
