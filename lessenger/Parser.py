@@ -9,8 +9,9 @@ class LessengerParser:
         if len(words) == 1:
             return tuple(words)
   
-        reg_word = r"\W*([\w]*)"
+        reg_word = r"\W*([\w* ]*)"
         regex = r"{}\W*{}{}".format(reg_word,indicator,reg_word)
+        print(regex)
         pattern = re.compile(regex)
         matches = re.search(pattern, query)
         if matches:

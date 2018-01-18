@@ -86,6 +86,7 @@ class LessengerController:
         else:
             location = query
         
+        print(location)
         if location:
             self.geoService.search_location(location)
             coors_points = self.geoService.get_lat_lng()

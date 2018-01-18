@@ -33,7 +33,7 @@ python app.py
 ```
 
 
-shout to 
+shout out to 
 
 https://github.com/ZeevG/python-forecast.io
 
