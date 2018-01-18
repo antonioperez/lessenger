@@ -1,8 +1,7 @@
 import re
 
 class LessengerParser:
-    """Class to read and parse the users request
-    """
+    """Class to read and parse the users request"""
     def get_location(self, query, indicator):
         query = query.lower().strip()
         words = query.split()

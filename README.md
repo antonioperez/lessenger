@@ -3,12 +3,15 @@
 
 Lessenger Chatbot - Weather
 
+
 ### Prerequisites
 
 ```
 Python 3.6 or later
 PIP - python package manager
 ```
+
+
 
 ### Installing
 
@@ -26,5 +29,5 @@ python tests.py
 ## Running Application
 
 ```
-FLASK_APP=app.py flask run --port=9000
+python app.py
 ```

@@ -20,16 +20,16 @@ class GoogleGeoService:
         self.data = self.gmaps.geocode(location)
     
     def get_lat_lng(self):
-        
+        """
+        Check for city key in result types.
+        search for address components if first city indicator fails
+        """
+
         if len(self.data) < 1: 
             raise NoDataError("No Active Data")
 
         for result in self.data:     
             location = result["geometry"]["location"]
-            """
-            Check for city key in result types.
-            search for address components if first city indicator fails
-            """
             if self.city_search_key in result["types"]:
                 if "lat" in location and "lng" in location:
                     return location
