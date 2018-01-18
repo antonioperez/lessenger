@@ -16,7 +16,7 @@ class LessengerController:
     
     def get_help_message(self):
         msg = """I hear you're interested in the weather <br>
-            ask for the weather in any location <br>
+            ask for the weather in any city <br>
             ex) weather in SF, what's the weather in Fresno, LA weather"""
         return {
             "type": "rich",
@@ -38,7 +38,6 @@ class LessengerController:
         }
 
     def get_response(self, query):
-        print(query)
         response = {"type": "text", "text" : ""}
         try:
             self.get_weather(query)
@@ -86,7 +85,6 @@ class LessengerController:
         else:
             location = query
         
-        print(location)
         if location:
             self.geoService.search_location(location)
             coors_points = self.geoService.get_lat_lng()
