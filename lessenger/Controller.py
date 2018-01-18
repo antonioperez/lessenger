@@ -13,6 +13,7 @@ class LessengerController:
         self.geoService = geoService
         self.weatherService = weatherService
         self.parserService = parserService
+        self.weather_data = None
     
     def get_help_message(self):
         msg = """I hear you're interested in the weather! <br>
@@ -71,7 +72,6 @@ class LessengerController:
         
         location = ""
         locations = ()
-        weather_data = None
         if "weather in" in query:
             locations = self.parserService.parse(query, "weather in")
             if locations[1]:
