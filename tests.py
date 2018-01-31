@@ -19,13 +19,12 @@ request_parser = LessengerParser()
 lessenger_control = LessengerController(geo_service, weather_service, request_parser)
 
 test_inputs = [
-    "Texas", "what's the weather in Fresno", 
-    "weather in 93722", "weather seattle", "LA weather",
-    "weather san francisco"
+    "What's the weather tomorrow in Fresno", 
+    "weather tomorrow in 93722",
+    "Fresno"
 ]
 
 for query in test_inputs:
-    
     geocode_result = lessenger_control.get_response(query)
     if geocode_result:
         pp.pprint(geocode_result)
