@@ -47,7 +47,7 @@ class LessengerController:
             address = self.geoService.get_formatted_address()
             summary = self.weather_data.summary
             temperature = self.weather_data.temperature
-            resp = "On {3} it'll be {0}F in {2}. {1}".format(temperature, summary, address, self.weather_time.strftime('%Y-%m-%d'))
+            resp = "On {3} it'll be {0}F in {2}. {1}".format(temperature, summary, address, self.weather_time.strftime('%A %d'))
             response["text"] = resp
 
         except LocationNotFound as err:
